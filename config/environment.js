@@ -1,12 +1,30 @@
 /* eslint-env node */
+
 'use strict';
 
 module.exports = function(environment) {
-  let ENV = {
+  var ENV = {
     modulePrefix: 'medi-stock',
     environment,
     rootURL: '/',
     locationType: 'auto',
+
+    firebase: {
+      apiKey: "AIzaSyD9Vxultn742F6ckWeBHqlxWUptKW2xHyo",
+      authDomain: "medistock-6c2bf.firebaseapp.com",
+      databaseURL: "https://medistock-6c2bf.firebaseio.com",
+      projectId: "medistock-6c2bf",
+      storageBucket: "medistock-6c2bf.appspot.com",
+      messagingSenderId: "641368342372"
+    },
+
+    // if using ember-cli-content-security-policy
+    contentSecurityPolicy: {
+      'script-src': "'self' 'unsafe-eval' apis.google.com",
+      'frame-src': "'self' https://*.firebaseapp.com",
+      'connect-src': "'self' wss://*.firebaseio.com https://*.googleapis.com"
+    },
+
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -26,10 +44,10 @@ module.exports = function(environment) {
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
-    // ENV.APP.LOG_ACTIVE_GENERATION = true;
-    // ENV.APP.LOG_TRANSITIONS = true;
-    // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.APP.LOG_ACTIVE_GENERATION = true;
+    ENV.APP.LOG_TRANSITIONS = true;
+    ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
+    ENV.APP.LOG_VIEW_LOOKUPS = true;
   }
 
   if (environment === 'test') {
@@ -49,3 +67,4 @@ module.exports = function(environment) {
 
   return ENV;
 };
+
